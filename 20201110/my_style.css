@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> CSS 실습 </title>
+        <style>
+            /*문서 내부에 지정
+            p {
+                background-color: moccasin;
+                color:orange;
+                padding: 20px;
+
+            }
+            */
+        </style>    
+    </head>
+    <body>
+        <p style="
+                 padding: 20px;
+                 color:orange;
+                 background-color: moccasin;
+                 "/p style>
+            Lorem ipsum dolor sit amet, Sconsectetur
+
+
+        
+
+    </body>
+</html>
