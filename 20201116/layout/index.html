@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>layout tutorial</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <style>
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                margin: 0;
+                font-family: 'Noto Sans JP', sans-serif;
+                line-height: 1.6;
+            }
+
+            .hero {
+                background-image: 
+                    url('https://raw.githubusercontent.com/hyeyoom/kh-lecture-2020/master/layout/img/bg.jpeg'),
+                    radial-gradient(#ccc, #111);
+                background-blend-mode: multiply;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-position: center center;
+                height: 100vh;                
+                color: white;
+                padding-top: 35rem
+            }
+
+            h1, p, blockquote {
+                margin: 0;
+            }
+
+            .container {
+                width: 85%;
+                max-width: 65em;
+                margin: 0 auto
+            }
+
+            .primary-title {
+                font-size: clamp(3rem, calc(3vw + 1rem), 2.5rem);
+            }
+
+            .article-spacing {
+                margin-top: 5rem;
+                width: 40%;
+            }
+
+            .article-spacing > h1 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .article-spacing > p, blockquote {
+                font-size: 1.3rem;
+                text-indent: 1rem;
+                margin-bottom: 2.4rem;
+            }
+
+            .article-spacing > blockquote {
+                padding-left: 1rem;
+                border-left: 5px solid black;
+                background-color: #f5f5f5;
+            }
+
+            .article-spacing > p:hover {
+                background-color: #f5f5f5;
+                cursor: pointer;
+            }
+
+            .image-box {
+                margin-bottom: 1.2rem;
+                text-align: center;
+            }
+
+            .image-box > p {
+                color: #555555;
+            }
+
+            .image-box > img {
+                filter: brightness(90%);
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .image-box > img:hover {
+                filter: none;
+                cursor: pointer;
+            }
+
+            footer {
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+
+            .info-container {
+                display: flex;
+            }
+
+            .info-container-item {
+                flex: 1 1 0;
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .item1 { background-color: rgb(53, 50, 49); }
+            .item2 { background-color: rgb(109, 110, 110); }
+            .item3 { background-color: rgb(206, 206, 206); }
+        </style>
+    </head>
+
+    <body>
+        <header class="hero">
+            <div class="container">
+                <h1 class="primary-title">スターバックス リザーブ® ロースタリー 東京</h1>
+                <p>STARBUCKS RESERVE ROASTERY TOKYO</p>
+                <p>〒153-0042 東京都目黒区青葉台２丁目１９−23 </p>
+            </div>
+        </header>
+        <main>
+            <article>
+                <div class="container article-spacing">
+                    <h1>👀 ロースタリー 東京 ロースタリーツアー</h1>
+                    <p>スターバックス リザーブ® ロースタリー 東京の館内を、コンシェルジュが１時間半かけて案内するロースタリー ツアー。外観からはじまり、館内１階から４階の各ゾーンを回りながら、様々な箇所に込められた想いやストーリーを五感で楽しめます。一杯のコーヒーが手元に届くまでのストーリーを体験できるツアーです。
+
+                        　こちらのツアーは、さまざまな味わいを持つコーヒー豆の多様性のごとく、ガイド役のコンシェルジュのキャラクターやタイミングによって、内容が変わってくるのがおもしろいところ。リピーターの方がいらっしゃるのも納得です。参加するタイミングによって、毎回、新鮮な驚きと喜びを感じられるはず。</p>
+                    <p>重厚感のあるガラスの扉を開いて、いざ中へ。目の前には大きな焙煎機とコーヒーのいい香り。「こんにちは、ロースタリーへようこそ！」と、コンシェルジュが笑顔で出迎えてくれます。一歩足を踏み入れたら、そこは外の世界とは別のコーヒーのワンダーランドが広がります。</p>
+                    <blockquote>
+                        <p>一杯のコーヒー豆のストーリー</p>
+                        <p>♡.♡</p>
+                    </blockquote>
+                    <p>コーヒーの木（１階）ロースタリーのストーリーは、まずコーヒーの木から始まります。ふだんコーヒーを飲んでいても、コーヒーの木にお目にかかることはめったにないので、一杯のコーヒーのはじまりをここで感じます。 
+                        生豆を輸送するローディングピット（１階）
+                        焙煎機、焙煎した豆を貯蔵するカスクの奥には生豆を輸送するローディングピットがあります。海を越えてやってきた大きなコーヒー豆の麻袋を開けて、ピットに投入するときに豆がザザーッと吸い込まれていく音が心地よく、生豆の香りをほんのり感じます。
+                        パイプで豆を運ぶ（１階）また、ローディングピットからメインバーのサイロへ風圧でシンフォニーパイプを通じて豆が運ばれる様子を見ることができました。豆がパイプの中を進んでいく様子は、なんだかSFの世界のようで新鮮。こんな光景を目にするのは初めてです。
+                        カスクの構造（２～４階）
+                        ２～４階ではカスクの中の構造を見ることができます。この中には、実はコーヒー豆をおいしくするためのいろいろな秘密（装置）が入っているのです。
+                        館内で使う豆を焙煎（３階）１階と比べて少し小さめの焙煎機では、館内で使うための豆を焙煎しています。焼いてすぐに1階のスクープ・バーに並ぶこともあるそうです。
+                        焙煎のプロセスについて、ロースター（焙煎士）から説明がありました。
+                        スクープバー（１階）館内のシンボル、大きな焙煎機の奥にはスクープ・バーがあります。焙煎したてのコーヒーを目の前で販売しています。色や豆の大きさの違いのほか、「ROASTED日時」と書かれています。これは焙煎した日付け。焙煎したばかりの豆もこちらで量り売りで購入できます。</p>
+                    <h1>館内のデザインに込められた思い</h1>
+                    <p>和紙を使ったアート（１階）
+                        ロースタリーでは、日本の文化をしっかり伝えるということを意識しており、入り口では、和紙を使ったアートが出迎えてくれます。</p>
+                    <div class="image-box">
+                        <img src="https://cdn.amebaowndme.com/madrid-prd/madrid-web/images/sites/45/2e85614061365564d1ea6245327fbd50_ac97b262540261678e6f8bb6b535f647.jpg?width=720"/>
+                        <p>[スターバックス リザーブ® ロースタリー 東京]</p>
+                    </div>
+                    <p>折り紙天井（２階）
+                        天井を見上げると、折り紙のような形状です。これは入り口の和紙のディスプレイ同様に日本の文化を象徴するデザインで、光の当たり具合によって表情が変わります。
+                        </p>
+                    <p>茶室のような空間（２階）
+                        ２階のティバーナへと向かうと、ティーの甘い香りが漂い、コーヒーとは別の世界が広がります。茶室をイメージして、天井が低めのつくりになっています。心の穏やかさを楽しめるスペースです</p>
+                    <p>ロースタリーの4階、AMU TOKYOで行われるコーヒーセッションは今後、新しいスターバックスリザーブ® コーヒー豆が発売される毎月10日前後に開催されます（有料）。詳しくはロースタリーのサイト上で案内されます。ロースタリーでのセッションだからこその、他では体験できない内容になっていく予定です。</p>
+                    <p>この日、カッピングが行われたロースタリー4階のスペースには名前が付いています。
+                        “AMU TOKYO（アム トウキョウ）”さまざまに色づく才能を「編み」、輝かしいアイデアを「生む」場所。新しい未来を創造する場を生み出したいという思いが込められています。
+                        「スターバックスは、お客様とのつながりで成長してきた会社です。スターバックスとお客様との間には“コーヒー”がありますが、最終的にはパートナーとお客様とのつながりが大事だと考えていますterytokyo"></p>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="container info-container">
+                    <div class="info-container-item item1">
+                        <h1>▼ロースタリー 公式ウェブサイト</h1>
+                        <p>https://www.starbucks.co.jp/roastery/</p>
+                    </div>
+                    <div class="info-container-item item2">
+                        <h1>Instagram </h1>
+                        <p>https://www.instagram.com/accounts/login/?next=/starbucksreserve_tokyo</p>
+                    </div>
+                    <div class="info-container-item item3">
+                        <h1>Twitter</h1>
+                        <P>https://twitter.com/roasterytokyo"</P>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

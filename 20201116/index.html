@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <style>
+            #box{
+                width: 100px;
+                height: 100px;
+                background-color: cornflowerblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">박스 안 텍스트</div>
+        <script>
+            //background-color
+            //background
+        </script>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+             
+            }
+
+            .b1 { background-color: #f3b3a8;}
+            .b2 { background-color: #b5c5e4;}
+            .b3 { background-color: hsl(43, 84%, 81%);}
+        </style>
+    </head>
+    <body>
+        <div class="box b1">box1</div>
+        <div class="box b2">box2</div>
+        <div class="box b3">box3</div>
+        <script>
+            //background-color
+            //background
+        </script>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+    </head>
+    <body>
+        <ul id="root">
+            <li>1뎁스 - 1</li>
+            <li>1뎁스 - 2</li>
+            <li>1뎁스 - 3</li>
+            <li>1뎁스 - 4</li>
+            <ul>
+                <li>2뎁스 - 1</li>
+                <li>2뎁스 - 2</li>
+                <ul>
+                    <li>3뎁스 - 1</li>
+                    <li>3뎁스 - 2</li>
+                    <li>3뎁스 - 3</li>
+                    <ul>
+                        <li>4뎁스 - 1</li>
+                        <li>4뎁스 - 2</li>
+                        <li>4뎁스 - 3</li>
+                    </ul>
+                </ul>
+            </ul>
+            <li>1뎁스 - 5</li>
+            <ul>
+                <li>2뎁스</li>
+            </ul>
+        </ul>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+    </head>
+    <body>
+        <ul id="root">
+            <li>1뎁스 - 1</li>
+            <li>1뎁스 - 2</li>
+            <li>1뎁스 - 3</li>
+            <li>1뎁스 - 4</li>
+            <ul>
+                <li>2뎁스 - 1</li>
+                <li>2뎁스 - 2</li>
+                <ul>
+                    <li>3뎁스 - 1</li>
+                    <li>3뎁스 - 2</li>
+                    <li>3뎁스 - 3</li>
+                    <ul>
+                        <li>4뎁스 - 1</li>
+                        <li>4뎁스 - 2</li>
+                        <li>4뎁스 - 3</li>
+                    </ul>
+                </ul>
+            </ul>
+            <li>1뎁스 - 5</li>
+            <ul>
+                <li>2뎁스</li>
+            </ul>
+        </ul>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.2/purify.min.js" integrity="sha512-T6jx0SL5artICbQxeQCg3iToWGEuWM6P2XjNxP1vMI6fNtgIb3dnVD5gpd/pkQKoMfi1ygq5ezv/Z2VB3lLGtw==" crossorigin="anonymous"></script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(172, 172, 172);
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function handleClick() {
+                alert('클릭했음')
+            }
+        </script>
+       <div ondblclick="handleClick()" class="box">._.</div>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.2/purify.min.js" integrity="sha512-T6jx0SL5artICbQxeQCg3iToWGEuWM6P2XjNxP1vMI6fNtgIb3dnVD5gpd/pkQKoMfi1ygq5ezv/Z2VB3lLGtw==" crossorigin="anonymous"></script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(16, 54, 126);
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function handleClick(e) {
+                alert('function triggered')
+            }
+        </script>
+        <div onmouseover="handleClick()" class="box">._.</div>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.2/purify.min.js" integrity="sha512-T6jx0SL5artICbQxeQCg3iToWGEuWM6P2XjNxP1vMI6fNtgIb3dnVD5gpd/pkQKoMfi1ygq5ezv/Z2VB3lLGtw==" crossorigin="anonymous"></script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(79, 81, 85);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="boxbox" class="box">._.</div>
+        <script>
+            const box = document.querySelector('#boxbox')
+            box.onclick = () => {
+                alert('triggered')
+            }
+        </script>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.2/purify.min.js" integrity="sha512-T6jx0SL5artICbQxeQCg3iToWGEuWM6P2XjNxP1vMI6fNtgIb3dnVD5gpd/pkQKoMfi1ygq5ezv/Z2VB3lLGtw==" crossorigin="anonymous"></script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: #40e9e0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="boxbox" class="box">._.</div>
+        <script>
+            const box = document.querySelector('#boxbox')
+            box.addEventListener('click', () => {
+                alert('hi')
+            }
+        </script>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bxo위에 키보드로입력하기</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: #b8ed64;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="boxbox" class="box">._.</div>
+        <script>
+            const box = document.querySelector('#boxbox')
+            document.body.addEventListener('keypress', e => {
+                const currentValue = box.innerText
+                box.innerText = currentValue + e.key
+            })
+        </script>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>box 움직이기</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: hsl(24, 91%, 79%);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="boxbox" class="box">◁._.▷</div>
+        <script>
+            const box = document.querySelector('#boxbox')
+            let x = 0
+            let y = 0
+            document.body.addEventListener('keydown', e => {
+                switch(e.key) {
+                    case 'ArrowUp':
+                        y -= 5
+                        break;
+                    case 'ArrowDown':
+                        y += 5
+                        break;
+                    case 'ArrowLeft':
+                        x -= 5
+                        break;
+                    case 'ArrowRight':
+                        x += 5
+                        break;
+                }
+                box.style.transform = `translate3d(${x}px, ${y}px, 0)`
+            })
+        </script>
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background-color: rgba(162, 229, 241, 0.98);
+                cursor: pointer;
+            }
+
+            p {
+                background-color: #14c5dc;
+                cursor: pointer;
+            }
+
+            span {
+                background-color: #0b95b8;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d">
+            <p id="p">
+                <span id="s">내용</span>같은거
+            </p>
+        </div>
+        <script>
+            const d = document.getElementById('d')
+            const p = document.getElementById('p')
+            const s = document.getElementById('s')
+
+            d.addEventListener('click', e => {
+                console.log('div 누름')
+            })
+
+            p.addEventListener('click', e => {
+                console.log('paragraph 누름')
+            })
+
+            s.addEventListener('click', e => {
+                e.stopPropagation()
+                console.log('span 누름')
+            })
+        </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: cornflowerblue;
+                cursor: pointer;
+            }
+
+            p {
+                background-color: crimson;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div onclick="alert('div')" class="box">
+            <p onclick="alert('p')">내용같은거</p>
+        </div>
+    </body>
+</html>
