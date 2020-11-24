@@ -1,175 +1,208 @@
-# frontend 수업
+# 1. 블로킹
 
-                                                               -20201109
+```java
+public static void main(Stromg[] args) {
+    //블로킹
+    final Scanner scanner = new Scanner(System.in);
+    scanner.next();
+    System.out.println("next가 종료되기 전까지 이곳에 못옴.")
+}
+```
 
-# 1. HTML
+코드 실행 흐름이 블로킹 연산이 종료되기 전까지 멈춰있음.
 
-- HTML : HyperText Markup Language
-- HTTP : HyperText Transfer Protocol
-  - HTML 전송
+대표적인 예
+ - IO
+    -소켓
+    -파일
+ - 사용자 입력
 
-URL(Uniform Resource Locator)
-- http://127.0.0.1:5500/20201109.index.html
-  - 127.0.0.1 - IP 주소 (혹은 도메인 )
-  - 5500 - 포트
-  - / 20201109/index.html - 리소스 경로
+# 2. 스레드
 
-http포트 - 기본 80
-https포트 - 기본 443 
+ - 시분할: 주어진 시간 조각(퀀텀 타임)을 받아서 각스레드가 실행됨
+ - 컨텍스트: 실행하고 있던 시점의 상태(문맥)
+ - 컨텍스트 스위칭: 기존의 실행 정보를 저장하고 다른 컨텍스트로 전환하는 것
+ - 동시성: 동시에 실행되는 것 처럼 보임
+ - 병렬성: 실제로 동시에 실행 됨
 
-# 2. 주소창에 입력했을 때 찾아가는 과정
+ ## 2.1. 자바에서 스레드 생성 및 실행
 
-1. 주소를 입력
-2. 로컬에 등록된 DNS IP 주소로 해당 도메인을 질의 (query)함
-   1. 해당 DNS에 정보가 캐싱된 경우는 바로 응답 받음
-   2. 없는 경우 상위 DNS에게 질의
-3. 응답 받은 IP 주소로 접속 (브라우저가) 
-4. 해당 서버에게 리소스 요청
-5. 해당 서버가 리소스 응답 (html, js, image, audio, video) 
-6. 브라우저는 html 문서 받아서 렌더링
+ - Runnable 인터페이스
+ - Thread 상속
 
-# 3. HTML
+  ### 2.1.1 
 
-- 태그 - 문서 기본 요소
-  - <와> 로 감싸져 있음. (<html>)
-  - 권장 : 태그는 소문자로
-  - 단일 태그 형태 : <태그/>
-  - 일반 태그
-     -<태그>내용</태그>
-     -여는 태그: <태그>
-  - 계층 구조로 되어 있다(트리)
-     -포함관계 명확하게
-  - 태그는 속성을 가지고 있음
-     -<태그 속성 = 값 속성 = 값> </태그>        
+  ```java 
 
-# 4. html 태그
+   ### 2.1.2. Thread  상속
 
-lang 속성
+   1. Thread 클래스를 상속 받음
+   2. run 메소드 오버라이드해서 수행할 작업 정의
 
-  - ko : 한국어
-  - en : 영어
-  - ja : 일본어
-  - zh : 중국어
+ ## 2.2. 스레드 우선순위
 
-## 4.1. head 태그
+    - 어떤 스레드가 더 중요한가?
+     - 중요할 수록 CPU에게 더 많은 관심을 받고 많이 실행
 
-SEO : Search Engine Optimization
+ ## 2.3. 동기화(synchronization)
 
-- title 태그 - 제목 표시
-- meta
-  - 문자셋
-  - 브라우저 호환성 표시
-  - 검색 결과 설명 지정
-  - 검색 결과 표시 문구 지정
-  - 봇 제어
 
-## 4.2. body
+  ### 2.3.2. 문제 해결
 
-    실제로 렌더링 되는 정보들
+  어떤 스레드가 사용하고 있는 '공유 객체'가 다른 스레드에 의한 변경되는 것을 막기 위해 작업이 끝날 때 까지 접근하지 못하도록 해야 데이터의 오염을 막을 수 있다. 이 막는 행위가 'lock'임.
 
-# 1. 텍스트 - 블록
+  `sychronized` 키워드 사용.
 
-## 1.1. hn(n값 1 ~ 6)
+  ### 2.3.3. 동기화 사용 시 주의점
 
-    heading, 제목 표시
+  - 공유 객체에 접근하는 스레드가 많아지면 프로그램 전체성능 하락할 우려가 존재함
+  - 공유 객체에 접근해서 작업하는 시간이 길어지면 프로그램 전체 성능 하락할 우려가 존재함
+  
+ ## 2.4. 스레드 상태(라이프사이클)
 
-## 1.2. p 태그
+ - 생성됨(NEW)
+  - 실행 대기(RUNNABLE)
+  - 실행
+  - 일시 정지
+ - 종료
 
-    paragraph, 문단
-      - 스페이스를 아무리  많이 입력해도 공백은 하나로 표시 됨
-      - 줄 바꿈 없이 텍스트를 쭉 입력할 수 있음
+ ## 2.5. 스레드 상태 제어
 
-## 1.3. br 태그
+ - sleep
+ - join
 
-    break, 줄 바꿈
-      -단일 태그임에 유의
+ ## 2.6. 결론
 
-## 1.4. hr 태그 - 수평 줄
+ - 실행 흐름을 두 개 이상 만들 수 있음
+  - 블로킹 되는 부분을 다른 실행 흐름에 넘기면 메인스레드는 하던 일을 마저 할 수 있음
 
-    horizontal rule, 수평 줄
+  ## 2.7. 고민거리
 
-## 1.5. blockquote - 인용구
+  - 스레드가 많이젼 성능이 좋아질까???
 
-    인용구
+# 3. IO
+ - 스트림은 데이터가 단일 방향으로 연속으로 흐르는 것을 의미
 
-## 1.6. pre
+ 출발지
+ - 키보드
+ - 파일(읽기)
+ - 소켓(외부의 데이터가 프로그램으로)
 
-    공백을 그대로 출력
+ 도착지(출력)
+ - 화면
+ - 파일(쓰기)
+ - 소켓(프로그램에서 데이터가 외부로)
 
-# 2. 텍스트 - 인라인
+  ## 3.1. 입력 스트림 / 출력 스트림
 
- ## 2.1. strong, b - 굵게(bold) 처리
-   
-    텍스트를 굵게 표시
+  출발지냐 도착지냐
 
- ## 2.2. em, i - 이탤릭
+   1. 프로그램이 도착지인 경우
+    1. 파일 읽기
+    2. 데이터 수신(소켓)
+    3. 키 입력
+   2. 프로그램이 출발지인 경우
+    1. 파일 쓰기
+    2. 데이터 송신(소켓)
+    3. 화면 출력
 
- ## 2.3. q - 인라인 인용구 (quote)
+ 스트림은 크게 두 종류로 구분됨
+   - 바이트 기반(텍스트를 포함한 이미지, 파일 등)
+   - 문자 기반(텍스트)
 
- ## 2.4. mark - 형광펜
+ 바이트 기반 스트림의 입력 스트림과 출력 스트림 최상위 클래스
+    - InputStream (abstract)
+    - OutputStream (abstract)
 
- ## 2.5. span - 아무것도 안함
+ 문자 기반 스트림
+  - Reader (Input)
+  - Writer (Output)
 
- ## 2.6. ruby - 동아시아 문자
+ ## 3.2. InputStream (도착지)
 
-# 3. 목록
+ InputStream - 바이트 기반 스트림의 최상위 클래스
 
-  - 순서 없는 목록(unordered list)
-  - 순서 있는 목록(orderd list)
+ - `int read()`: 한 바이트만 읽음
+ - `int read(byte[] b)`: 파라미터로 넘겨준 b에 데이터를 저장하고, 읽은 바이트 수를 반환 함
+ - `int read(byte[] b, int offset, int length)`
+  - length개의 바이트를 읽어서
+  - b[offset]에 저장
+  - void close()` : 자원을 반납하고 입력 스트림을 닫음(필수)
 
- ## 3.1. 순서 없는 목록
+ ## 3,3,  OutputStream (출발지)
 
-    ul, li 
+ OutputStream - 바이트 기반 출력 스트림의 최상위 클래스
 
-    ''' html
-        <ul>
-        <li> 리스트 </li>
-    <   ul>
-            <li>리스트2</li>
-         </ul>   
-    </ul>
-    '''
+ - 'void write(int b)`: int 중에서 끝의 바이트 하나만 씀
+ - `void write(byte[] b`): 출력 스트림으로 b를 보냄
+ - `void write(byte[] b, int offset, int length)`: b[offset]부터 length만큼을 출력
+ - `void flush()`: 버퍼에 있는 모든 데이터 출력(보냄)
+ - `void close()`: 자원을 반납하고 출력 스트림을 닫음 (필수)
 
- ## 3.2. 순서 있는 목록
+ # 3.4. Reader (도착지)
 
-    ol
+ - `int read(char[] cbuf)`: cbuf에 읽은 문자 배열을 저장하고 읽은 문자 수를 리턴(int)
+ - `void close()`: 사용한 자원 반납. 입력 스트림 닫음 (필수)
 
- ## 3.3. 설명 있는 목록
+3.5. Writer (출발지)
 
-    dl (description list)
-    dt - 제목
-    dd - 설명
+ - `void write(char[] cbuf)`: cbuf를 출력함
+ - `void close()`
 
-# 4. 표
+3.6. 파일 입출력
 
-    - table
-    - tr (rable row)
-    - td (tag define)
-    - th (tag header)
+ 파일 읽기
+ 
+ - File
+ - FileInputStream/FileOutputStream
+ - FileReader / FileWriter
 
-# 5. 이미지
+  ### 3.6.1. File 클래스
 
-    img 태그
-    '''html
-    <img src = "이미지url(또는 파일의 경로)"/>
+  ```java
+  File file = new File("/path/to/file");
+  ```
 
-    src - 이미지 url, 파일 경로
-    alt - 대체 문구 (alternative)
-    width - 너비
-    height - 노ㅠㅇ
+  - `boolean exists()` : 해당 파일이 존재하는지 여부
+  - 'boolean createNewFile() : 생성 성공시 true
+  - long
 
-# 6. a태그
+# 4. 네트워크
 
-   <a href = "링크"> 링크이름 </a>
+ - ip 주소 : 네트워크 상에서 컴퓨터를 식별학기 위한 주소
+ - port: 컴퓨터에서 프로그램을 구분하기 위한 번호
 
-   - href : 주소
-   - target : 링크가 표시 될 방법
-   - download : 링크의 리소스를 다운로드
+ ## 4.1. Socket
 
- target 속성
- - _blank
- - self : 기본값 
+ 서버 소켓 생성 방법
 
+ ```java
+int 포트번호 = 12345;
+ final ServerSocker serverSocket = new ServerSocket(포트번호);
+ ```
+
+ 서버 소켓으로 클라이언트 접속 대기
+
+ ```java
+ final Socket client = serverSocket.accept();
+ ```
+
+ - accept는 blocking
+ - 접속이 되고 나면 'socket' 변환
+
+ 클라이언트 소켓
+
+ ```java
+ final String ip = "localhost"
+ final int port = 12345;
+ final Socket socket = new Socket(ip, port);
+ ```
+
+ 소켓 (서버, 클라 동일)에서 스트림 얻기
+
+ ```java
+ socket.getInputStream();
+ socket.
 
 
 
